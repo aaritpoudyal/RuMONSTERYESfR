@@ -1,0 +1,128 @@
+
+
+namespace MonsterRunner
+{
+    internal class Program
+    {
+        
+        static double Strength = 100;
+        static double Energy = 100;
+        static double Bravery = 100;
+        static double Defense = 100;
+
+        static void Main(string[] args)
+        {
+            string choice = "";
+            Console.WriteLine("Welcome to the monster runner!");
+            Console.WriteLine("You must run from the monster in different ways.");
+            Console.WriteLine("This is your stats right now. Strength = " + Strength + ", Energy = " + Energy + ", Bravery, = " + Bravery + ", Defense = " + Defense + ", When You choose Options, Your stats Change.");
+            Console.WriteLine("Have Fun!");
+            while (choice != "5")
+            {
+                Console.WriteLine("-----------------------------------------------");
+                Console.WriteLine("Choose An Option to Outrun the Monster");
+                Console.WriteLine("1. Run");
+                Console.WriteLine("2. Fight Back");
+                Console.WriteLine("3. Defend");
+                Console.WriteLine("4. Check Your Status");
+                Console.WriteLine("5. Exit");
+                choice = Console.ReadLine();
+
+
+                switch (choice)
+                {
+                    case "1":
+                        Run();
+                        break;
+
+                    case "2":
+                        FightBack();
+                        break;
+
+                    case "3":
+                        Defend();
+                        break;
+
+                    case "4":
+                        CkeckStatus();
+                        break;
+
+                    case "5":
+                        string output = Exit();
+                        Console.WriteLine("Output");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice. Please try again.");
+                        break;
+                }
+                Console.WriteLine();
+
+                if (Strength >= 250 && Energy >= 250 && Defense >= 250 && Bravery >= 250)
+
+                {
+
+                    Console.WriteLine("You've Won The Game!");
+                    Console.WriteLine("You've Offically Know How to Outrun a Monster!");
+                    break;
+
+                }
+                if (Strength <= 0  && Energy <= 0 && Defense <= 0 && Bravery <= 0)
+                {
+                    Console.WriteLine("You've Lost, Sorry");
+                    Console.WriteLine("If ALL of your stats hit 0, You lose");
+                    Console.WriteLine("Else if ALL of your stats hit 250, You win.");
+                    break;
+                }
+
+
+
+            }
+
+
+
+        }
+
+        public static string Exit()
+        {
+            string exitMessage = "Thank you for playing. Good bye!";
+            return exitMessage;
+        }
+
+        public static void CkeckStatus()
+        {
+            Console.WriteLine("Energy: " + Energy);
+            Console.WriteLine("Defense: " + Defense);
+            Console.WriteLine("Bravery " + Bravery);
+            Console.WriteLine("Strength " + Strength);
+
+        }
+
+        public static void Defend()
+        {
+            Console.WriteLine("You Succesfully Defended Yourself!");
+            Defense = Defense + 10;
+            Bravery = Bravery + 5;
+        }
+
+        public static void FightBack()
+        {
+
+            Console.WriteLine("You SuccesFully got Stronger!");
+            Strength = Strength + 10;
+            Energy = Energy + 5;
+            Defense = Defense - 5;
+        }
+
+        public static void Run()
+        {
+            Console.WriteLine("You SuccesFully Ran 50 Meters!");
+            
+            Defense = Defense + 5;
+            Bravery = Bravery - 5;
+        }
+      
+
+
+
+    }
+}
